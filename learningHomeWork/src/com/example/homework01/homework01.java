@@ -13,9 +13,9 @@ public class homework01 {
         System.out.println("В заданной строке " + lenghttext + " символов");
         int sizepart = lenghttext / 2;
         String part1 = text1.substring(0, sizepart);
-        System.out.println(part1);
+        System.out.println("Разбив предложение на две части мы получили первую часть: " + part1);
         String part2 = text1.substring(sizepart);
-        System.out.println(part2);
+        System.out.println("\nИ вторую часть: " + part2);
         System.out.println("------------------------");
 
 
