@@ -17,6 +17,10 @@ public class homework01 {
         String part2 = text1.substring(sizepart);
         System.out.println(part2);
 
+        System.out.println(part2);
+
+
+
         // Задача номер 2.
         // Создайте любое число. Определите, является ли последняя цифра числа семеркой.
         int x = (int)(Math.random()*10000);
