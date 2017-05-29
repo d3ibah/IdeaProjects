@@ -28,16 +28,24 @@ public class Main {
 */
 
     public static void main(String[] args) {
-        int[] massive[10];
+        int[] massive = new int[10];
 	scaner();
 	sort();
 	output();
     }
     public static Scanner scaner(){
+        Scanner scanner = new Scanner(System.in);
+        int[] massiveS = new  int[10];
+        for (int i = 0; i < massiveS.length; i++) {
+            massiveS[i] = scanner.nextInt();
+            int z = massiveS[i];
+            return z;
+        }
+
 
     }
 
-    public static  sort(){
+    public static void sort(){
 
     }
 
