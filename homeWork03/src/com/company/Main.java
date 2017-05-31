@@ -33,7 +33,7 @@ public class Main {
 	sort();
 	output();
     }
-    public static Scanner scaner(){
+    public static int scaner(){
         Scanner scanner = new Scanner(System.in);
         int[] massiveS = new  int[10];
         for (int i = 0; i < massiveS.length; i++) {
