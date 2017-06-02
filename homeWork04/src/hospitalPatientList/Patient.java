@@ -6,6 +6,10 @@ public class Patient {
     public String diagnosis;
     public Boolean isIllAgain;
 
+    public String getStringAge() {
+        return String.valueOf(age);
+    }       // в этом методе выполнил приведение инт в Стринг
+
 
 }
 
