@@ -14,6 +14,7 @@ public class Student {
     }
 
     public static String getUniverUpper() {
+
         return nameUniver.toUpperCase();
     }
 }
