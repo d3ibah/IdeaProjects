@@ -16,39 +16,49 @@ public class Bankomat {
         this.ui = ui;
     }
 
-    public void getMoney(int value){
+    public void getMoney() {
 
         System.out.println("Укажите сумму, которую хотите снять. Учитывайте, что банкомат  купюры " +
                 "номиналом 20, 50 и 100.");
         Scanner scanner = new Scanner(System.in);
         int temp = scanner.nextInt();
         System.out.println(temp);
-        if (temp%10 != 0 || temp == 30 || temp < 20 || temp > inkosacija) {     // указываем простые условия при которых выдача денег не возможна
+
+        // прописываем логику снятия денег. начинаем с простых вариантов
+        if (temp % 10 != 0 || temp == 30 || temp < 20 || temp > inkosacija) {     // указываем простые условия при которых выдача денег не возможна
             ui.onGetMoney(1);
         }
-        // прописываем логику снятия денег. начинаем с простых вариантов
-                if (temp == inkosacija){
-                    count20 = 0;
-                    count50 = 0;
-                    count100 = 0;
-                    ui.onGetMoney(0);
-                }
-                if (temp == NUM20) {
-                    count20 = count20 - 1;
-                    ui.onGetMoney(0);
-                }
-                if (temp == NUM50) {
-                    count50 = count50 - 1;
-                    ui.onGetMoney(0);
-                }
-                if (temp == NUM100) {
-                    count100 = count100 - 1;
-                    ui.onGetMoney(0);
-                }
-
-
-
-
+        /*if (temp == inkosacija) {
+            count20 = 0;
+            count50 = 0;
+            count100 = 0;
+            ui.onGetMoney(1);
+        }
+        if (temp == NUM20) {
+            count20 = count20 - 1;
+            ui.onGetMoney(1);
+        }
+        if (temp == NUM50) {
+            count50 = count50 - 1;
+            ui.onGetMoney(1);
+        }
+        if (temp == NUM100) {
+            count100 = count100 - 1;
+            ui.onGetMoney(1);
+        }*/
+        while (temp <= inkosacija && temp / NUM100 > 0 && count100 > 0){
+            count100 = count100 - 1;
+            temp = temp - NUM100;
+        }
+        while (temp < inkosacija && temp / NUM50 > 0 && count50 > 0){
+            count50 = count50 - 1;
+            temp = temp - NUM50;
+        }
+        while (temp < inkosacija && temp / NUM20 > 0 && count20 > 0){
+            count20 = count20 - 1;
+            temp = temp - NUM20;
+        }
+        System.out.println(inkosacija + " NUM20 - " + count20 + " NUM50 - " + count50 + " NUM100 - " + count100);
 
 
 
@@ -61,7 +71,7 @@ public class Bankomat {
         //ui.onGetMoney(value);
     }
 
-    public boolean setMoney(){
+    public boolean setMoney() {
         System.out.println("Для работы программы нужно указать количество купюр номиналом 20, 50 и 100." +
                 "\nВведите количество купюр номиналом 20:\t");
         Scanner scanner = new Scanner(System.in);

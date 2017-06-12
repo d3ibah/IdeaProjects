@@ -11,18 +11,26 @@ public class UI implements OnBankomatListenner{
         // polozhit deneg
         boolean isOK = bankomat.setMoney();
 
-        bankomat.getMoney(70);
+        bankomat.getMoney();
 
 
     }
 
 
     public void onGetMoney(int money){
-        if (money == 0 ){
-            System.out.println("Udacha dengi polucheny!");
+        /*switch (money){
+            case (0):
+                System.out.println("Udacha dengi polucheny!");
+                break;
+            case (1):
+                System.out.println("Операция не может быть выполнена. Не корректно указана сумма снятия");
+                break;
+        }*/
+        if (money == 1 ){
+            System.out.println("Операция не может быть выполнена. Не корректно указана сумма снятия");
         }
         else {
-            System.out.println("Операция не может быть выполнена. Не корректно указана сумма снятия");
+            System.out.println("Udacha dengi polucheny!");
         }
     }
 
