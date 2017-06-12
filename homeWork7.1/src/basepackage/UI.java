@@ -18,11 +18,11 @@ public class UI implements OnBankomatListenner{
 
 
     public void onGetMoney(int money){
-        if (money >0 ){
+        if (money == 0 ){
             System.out.println("Udacha dengi polucheny!");
         }
         else {
-            System.out.println("Oshibka, nedostatochno sredstv v kasse");
+            System.out.println("Операция не может быть выполнена. Не корректно указана сумма снятия");
         }
     }
 
