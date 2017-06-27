@@ -1,4 +1,4 @@
-package basepackage;
+package basepackage.Singleton;
 
 /**
  * Created by Home911 on 26.06.2017.
