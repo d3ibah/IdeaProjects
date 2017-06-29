@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
@@ -21,36 +23,66 @@ public class Main {
 Вывод значений массива на экран должен быть сделан в отдельном методе,
 этот метод будет использоваться для вывода значений массива до сортировки и после сортировки.
 
-Сортировку нужно сделать 3-мя различными способами (на ваш выбор). На следующем занятии необходимо уметь пояснить, как работает тот или иной тип сортировки, плюсы и минусы каждой из них.
+Сортировку нужно сделать 3-мя различными способами (на ваш выбор). На следующем занятии необходимо уметь пояснить,
+как работает тот или иной тип сортировки, плюсы и минусы каждой из них.
 
 Пока это все ). Постарайтесь за выходные до конца понять, то что мы уже прошли:
 массивы, циклы (for, while, do-while), операторы (if, switch) и создание дополнительных методов.
 */
+    static Integer[] massive = new Integer[10];
 
     public static void main(String[] args) {
-        int[] massive = new int[10];
+
 	scaner();
 	sort();
-	output();
+
     }
-    public static int scaner(){
+    public static void scaner(){
         Scanner scanner = new Scanner(System.in);
-        int[] massiveS = new  int[10];
-        for (int i = 0; i < massiveS.length; i++) {
-            massiveS[i] = scanner.nextInt();
-            int z = massiveS[i];
-            return z;
+            for (int i = 0; i < massive.length; i++) {
+            massive[i] = scanner.nextInt();
         }
-
-
     }
 
-    public static void sort(){
+    public static void sort() {
+        // сортировка прямы выбором по убыванию
+        for (int i = 0; i < massive.length; i++){
+            int biggest = i;
+            for (int j = i; j < massive.length; j++){
+                if (massive[biggest] < massive[j]){
+                    biggest = j;
+                }
+            }
+            int t = massive[biggest];
+            massive[biggest] = massive[i];
+            massive[i] = t;
+        }
+        output();
+        // сортировка по возрастанию
+        Arrays.sort(massive);
+        output();
 
+        //сортировка по убыванию
+        Arrays.sort(massive, Collections.reverseOrder());
+        output();
+
+        //пузырьковая сортировка по возрастанию
+        for (int i = massive.length - 1; i > 0; i--){
+            for (int j = 0; j < i; j++){
+                if (massive[j] > massive[j + 1]){
+                    Integer t = massive[j];
+                    massive[j] = massive[j + 1];
+                    massive[j + 1] = t;
+                }
+            }
+        }
+        output();
     }
 
     public static void output(){
-        System.out.println();
-
+        for (int i = 0; i < massive.length; i++) {
+            System.out.println(massive[i]);
+        }
+        System.out.println("Конец сортировки------");
     }
 }
